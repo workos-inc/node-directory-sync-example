@@ -1,0 +1,26 @@
+extends layout
+
+block layout-content
+  div.View.WelcomeView
+    h1.Banner Groups and Users in #{directory.name}
+    div.Message
+      div.Title
+        h1 Current Groups
+      if groups.length
+        ul
+          each group in groups
+            p= group.name
+      else
+        h4 No Groups Created Yet
+    div.Message
+      div.Title
+        h1 Current Users
+      if users.length
+        ul
+          each user in users
+            p=user.username
+      else
+        h4 No Users in #{directory.name}
+    div.NavButtons
+      a(href="javascript:history.back()")
+        div.NavButton Go Back

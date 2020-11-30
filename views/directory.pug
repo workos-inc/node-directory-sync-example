@@ -1,0 +1,17 @@
+extends layout
+
+block layout-content
+  div.View.UserView
+    h1.Banner #{directory.name}
+    div.Message
+      div.Title
+        h1 Directory_Details
+        h3 Name: #{directory.name}
+        h3 Type: #{directory.type}
+        h3 Domain: #{directory.domain}
+
+        a(href=`/directory/${directory.id}/groups`)
+          h4 See Groups and Users in this Directory
+    div.NavButtons
+      a(href="javascript:history.back()")
+        div.NavButton Go Back
