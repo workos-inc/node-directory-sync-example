@@ -7,7 +7,7 @@ An example application demonstrating how Directory Sync works with WorkOS and No
 Clone this repo and install dependencies:
 
 ```sh
-git clone https://github.com/workos-inc/node-directory-sync-example.git && cd node-directory-sync-example && npm install
+git clone git@github.com:workos-inc/node-directory-sync-example.git && cd node-directory-sync-example && npm install
 ```
 
 ## Configure your environment
