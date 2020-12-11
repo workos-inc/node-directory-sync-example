@@ -9,7 +9,8 @@ block layout-content
       if groups.length
         ul
           each group in groups
-            p= group.name
+            a(href=`/directory/${directory.id}/group/${group.id}`)
+              p= group.name
       else
         h4 No Groups Created Yet
     div.Message
@@ -18,7 +19,8 @@ block layout-content
       if users.length
         ul
           each user in users
-            p=user.username
+            a(href=`/directory/${directory.id}/user/${user.id}`)
+              p=user.username
       else
         h4 No Users in #{directory.name}
     div.NavButtons
