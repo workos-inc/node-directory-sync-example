@@ -23,6 +23,7 @@ app.use(express.static(path.join(__dirname, "public")));
  * Route Definitions
  */
 app.get("/", async (req, res) => {
+  // API call to list all directories
   const directories = await workos.directorySync.listDirectories();
   res.render("index", {
       title: "Home",
@@ -31,6 +32,7 @@ app.get("/", async (req, res) => {
 });
 
 app.get('/directory/:id', async (req, res) => {
+  // API call to list all directories
   const directories = await workos.directorySync.listDirectories();
   const directory = await directories.data.filter((directory) => {
     return directory.id == req.params.id
@@ -42,13 +44,16 @@ app.get('/directory/:id', async (req, res) => {
 })
 
 app.get('/directory/:id/usersgroups', async (req, res) => {
+  // API call to list all directories
   const directories = await workos.directorySync.listDirectories();
   const directory = await directories.data.filter((directory) => {
     return directory.id == req.params.id
   })[0]
+  // API call to list all groups in a specified directory
   const groups = await workos.directorySync.listGroups({
     directory: req.params.id,
   });
+  // API call to list all users in a specified directory
   const users = await workos.directorySync.listUsers({
     directory: req.params.id,
 } );
@@ -61,10 +66,12 @@ app.get('/directory/:id/usersgroups', async (req, res) => {
 })
 
 app.get('/directory/:id/group/:groupId', async (req, res) => {
+  // API call to list all directories
   const directories = await workos.directorySync.listDirectories();
   const directory = await directories.data.filter((directory) => {
     return directory.id == req.params.id
   })[0]
+  // API call to list all groups within a specified directory
   const groups = await workos.directorySync.listGroups({
     directory: req.params.id,
   });
